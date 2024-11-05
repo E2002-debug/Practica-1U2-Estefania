@@ -1,0 +1,41 @@
+{% extends "template.html" %}
+{% block content %}
+<div class="container">
+    <div class="pagetitle">
+      <h1>Editar Propuesta</h1>
+    </div>
+    
+    <section class="section">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Editar los datos de la propuesta</h5>
+                        <form class="row g-3 needs-validation" method="POST" action="/propuesta/update" novalidate>
+                             <input type="hidden" name="id" value={{propuesta.id}}>
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Descripcion del Proyecto </label>
+                                <input type="text" class="form-control" name="descripcion" required value = {{propuesta.descripcion}} >
+                            </div>
+                            <div class="mb-3">
+                                <label for="fechaInicio" class="form-label">Monto del Proyecto</label>
+                                <input type="text" class="form-control" name="monto" required value ={{propuesta.monto}}>
+                            </div>
+                            <div class="mb-3">
+                                <label for="fechaFin" class="form-label">Wats a generar</label>
+                                <input type="text" class="form-control" name="watsGenerados" required value="{{propuesta.watsGenerados}}">
+                            </div>
+    
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success">Guardar</button>
+                                <a href="/propuesta/listaP" class="btn btn-danger">Cancelar</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+{% endblock %}

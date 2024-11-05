@@ -1,0 +1,15 @@
+[
+    {
+        "id": 1,
+        "nombre": "Tamara",
+        "apellido": "Mendez",
+        "montoI": 70000.0
+    },
+    {
+        "id": 2,
+        "nombre": "Steven",
+        "apellido": "Cale",
+        "montoI": 8000000.0
+    }
+ 
+]

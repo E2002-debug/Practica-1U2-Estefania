@@ -1,0 +1,69 @@
+{% extends "template.html" %}
+{% block content %}
+<div class="container">
+    <div class="pagetitle">
+      <h1>Registro de Proyectos</h1>
+    </div>
+    
+    <section class="section">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Ingresa los datos del proyecto</h5>
+                        <form class="row g-3 needs-validation" method="POST" action="/proyecto/save" novalidate>
+                            <!-- Datos del Proyecto -->
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Nombre del Proyecto</label>
+                                <input type="text" class="form-control" name="nombre" required placeholder="Ej. Proyecto Solar">
+                            </div>
+                            <div class="mb-3">
+                                <label for="fechaInicio" class="form-label">Fecha de Inicio</label>
+                                <input type="date" class="form-control" name="fechaInicio" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="fechaFin" class="form-label">Fecha de Fin</label>
+                                <input type="date" class="form-control" name="fechaFin" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="estado" class="form-label">Estado del Proyecto</label>
+                                <input type="text" class="form-control" name="estado" required placeholder="Ej. En curso">
+                            </div>
+    
+                            <!-- Selección de Inversionista -->
+                            <h6 class="mt-4">Selecciona un Inversionista</h6>
+                            <div class="mb-3">
+                                <label for="id" class="form-label">Inversionista</label>
+                                <select class="form-select" name="id" required>
+                                    <option value="">Seleccione un Inversionista</option>
+                                    {% for inversionista in lista_inversionistas %}
+                                    <option value="{{ inversionista.id }}">{{ inversionista.nombre }} {{ inversionista.apellido }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        
+                            <!-- Selección de Propuesta -->
+                            <h6 class="mt-4">Selecciona una Propuesta</h6>
+                            <div class="mb-3">
+                                <label for="propuestaId" class="form-label">Propuesta</label>
+                                <select class="form-select" name="propuestaId" required>
+                                    <option value="">Seleccione una Propuesta</option>
+                                    {% for propuesta in lista_propuestas %}
+                                    <option value="{{ propuesta.id }}">{{ propuesta.descripcion }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+    
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success">Guardar</button>
+                                <a href="/proyecto/lista" class="btn btn-danger">Cancelar</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+{% endblock %}

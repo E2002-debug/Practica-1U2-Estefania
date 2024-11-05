@@ -1,0 +1,35 @@
+{% extends "template.html" %}
+{% block content %}
+<h2 class="text-white">Propuestas eléctricas</h2>
+<div class="booking-form-body">
+    <a href="/propuesta/registrar" class="btn btn-danger mb-3">AGREGAR</a>
+    <table id="tabla" class="table text-white">
+        <thead>
+            <tr>
+                <th>Nro</th>
+                <th>Descripción</th>
+                <th>Monto Inicial</th>
+                <th>Watts a generar</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in lista %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ item.descripcion }}</td>
+                <td>{{ item.monto }}</td>
+                <td>{{ item.watsGenerados }}</td>
+                <td>
+                    <!-- Botón Modificar -->
+                    <a href="/propuesta/edit/{{item.id}}" class="btn btn-outline-primary btn-sm" title="Modificar">
+                        <i class="fas fa-edit"></i> Modificar
+                    </a>
+                    
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends "template.html" %}
+{% block content %}
+<div class="container">
+    <div class="pagetitle">
+        <h1>Editar Proyecto</h1>
+    </div>
+    <section class="section">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Editar los datos del Proyecto</h5>
+                        <form class="row g-3 needs-validation" method="POST" action="/proyecto/update" novalidate>
+                            <!-- Datos del Proyecto -->
+                            <input type="hidden" name="id" value="{{ proyecto.id }}">
+                            
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Nombre del Proyecto</label>
+                                <input type="text" class="form-control" name="nombre" required value="{{ proyecto.nombre }}">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="fechaInicio" class="form-label">Fecha de Inicio</label>
+                                <input type="date" class="form-control" name="fechaInicio" required value="{{ proyecto.fechaInicio }}">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="fechaFin" class="form-label">Fecha de Fin</label>
+                                <input type="date" class="form-control" name="fechaFin" required value="{{ proyecto.fechaFin }}">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="estado" class="form-label">Estado</label>
+                                <input type="text" class="form-control" name="estado" required value="{{ proyecto.estado }}">
+                            </div>
+
+                            <!-- Datos del Inversionista -->
+                            <h5 class="text-center mt-3">Datos del Inversionista</h5>
+                            
+                            <div class="mb-3">
+                                <label for="nombreInversionista" class="form-label">Nombre del Inversionista</label>
+                                <input type="text" class="form-control" name="inversionista[nombre]" required value="{{ proyecto.inversionista.nombre }}">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="apellidoInversionista" class="form-label">Apellido del Inversionista</label>
+                                <input type="text" class="form-control" name="inversionista[apellido]" required value="{{ proyecto.inversionista.apellido }}">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="montoInversion" class="form-label">Monto de Inversión</label>
+                                <input type="number" class="form-control" name="inversionista[montoI]" required value="{{ proyecto.inversionista.montoI }}">
+                            </div>
+
+                            <!-- Datos de la Propuesta -->
+                            <h5 class="text-center mt-3">Datos de la Propuesta</h5>
+                            
+                            <div class="mb-3">
+                                <label for="descripcionPropuesta" class="form-label">Descripción de la Propuesta</label>
+                                <input type="text" class="form-control" name="propuesta[descripcion]" required value="{{ proyecto.propuesta.descripcion }}">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="montoPropuesta" class="form-label">Monto de la Propuesta</label>
+                                <input type="number" class="form-control" name="propuesta[monto]" required value="{{ proyecto.propuesta.monto }}">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="watsGenerados" class="form-label">Wats Generados</label>
+                                <input type="number" class="form-control" name="propuesta[watsGenerados]" required value="{{ proyecto.propuesta.watsGenerados }}">
+                            </div>
+
+                            <!-- Botones de acción -->
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success">Guardar</button>
+                                <a href="/proyecto/lista" class="btn btn-danger">Cancelar</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

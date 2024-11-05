@@ -1,0 +1,42 @@
+{% extends "template.html" %}
+{% block content %}
+<div class="container">
+    <div class="pagetitle">
+      <h1>Registro de Proyectos</h1>
+    </div>
+    
+    <section class="section">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Propuesta Energetica</h5>
+                        <form class="row g-3 needs-validation" method="POST" action="/propuesta/save" novalidate>
+                            <!-- Datos del Proyecto -->
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Descripcion de la Propuesta</label>
+                                <input type="text" class="form-control" name="descripcion" required placeholder="Ej. Proyecto Solar">
+                            </div>
+                            <div class="mb-3">
+                                <label for="fechaInicio" class="form-label">monto</label>
+                                <input type="text" class="form-control" name="monto" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="fechaFin" class="form-label">wats a Generar</label>
+                                <input type="text" class="form-control" name="watsGenerados" required>
+                           
+                            
+    
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success">Guardar</button>
+                                <a href="/propuesta/lista" class="btn btn-danger">Cancelar</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+{% endblock %}

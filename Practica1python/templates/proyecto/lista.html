@@ -1,0 +1,55 @@
+{% extends "template.html" %}
+{% block content %}
+<h2 class="text-white">Lista de Proyectos de generacion electrica</h2>
+<div class="booking-form-body">
+    <a href="/proyecto/registrar" class="btn btn-danger">AGREGAR</a>
+    <table id="tabla" class="table text-white">
+        <thead>
+            <tr>
+                <th>Nro</th>
+                <th>Nombre del Proyecto</th>
+                <th>Fecha de Inicio</th>
+                <th>Fecha de Fin</th>
+                <th>Estado</th>
+                <th>Inversionista</th>
+                <th>Propuesta</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in lista %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ item.nombre }}</td>
+                <td>{{ item.fechaInicio }}</td>
+                <td>{{ item.fechaFin }}</td>
+                <td>{{ item.estado }}</td>
+                <td>
+                    <small>
+                        <strong>Nombre:</strong> {{ item.inversionista.nombre }}<br>
+                        <strong>Apellido:</strong> {{ item.inversionista.apellido }}<br>
+                        <strong>Monto Invertido:</strong> ${{ item.inversionista.montoI }}<br>
+                    </small>
+                </td>
+                <td>
+                    <small>
+                        <strong>Descripción:</strong> {{ item.propuesta.descripcion }}<br>
+                        <strong>Monto:</strong> ${{ item.propuesta.monto }}<br>
+                        <strong>Wats Generados:</strong> {{ item.propuesta.watsGenerados }} W<br>
+                    </small>
+                </td>
+                <td>
+                    <!-- Botón Modificar -->
+                    <a href="/proyecto/edit/{{item.id}}" class="btn btn-outline-primary btn-sm" title="Modificar">
+                        <i class="fas fa-edit"></i> Modificar
+                    </a>
+                    
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    
+</div>
+{% endblock %}

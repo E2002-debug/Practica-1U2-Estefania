@@ -1,0 +1,42 @@
+{% extends "template.html" %}
+{% block content %}
+<div class="container">
+    <div class="pagetitle">
+      <h1>Editar Inversionista</h1>
+    </div>
+    
+    <section class="section">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Editar los datos del Inversionista</h5>
+                        <form class="row g-3 needs-validation" method="POST" action="/inversionista/update" novalidate>
+                            <!-- Datos del Proyecto -->
+                             <input type="hidden" name="id" value={{inversionista.id}}>
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Nombre </label>
+                                <input type="text" class="form-control" name="nombre" required value = {{inversionista.nombre}} >
+                            </div>
+                            <div class="mb-3">
+                                <label for="fechaInicio" class="form-label">Apellido</label>
+                                <input type="text" class="form-control" name="apellido" required value ={{inversionista.apellido}}>
+                            </div>
+                            <div class="mb-3">
+                                <label for="fechaFin" class="form-label">Monto de inversion</label>
+                                <input type="text" class="form-control" name="montoI" required value="{{inversionista.montoI}}">
+                            </div>
+    
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success">Guardar</button>
+                                <a href="/inversionista/lista" class="btn btn-danger">Cancelar</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+{% endblock %}
